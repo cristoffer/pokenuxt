@@ -1,7 +1,63 @@
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig, presetUno, presetAttributify, presetWind4, presetTypography } from 'unocss'
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetUno({
+      dark: 'media',
+    }),
+    presetAttributify(),
+    presetWind4(),
+    presetTypography(),
   ],
+  rules: [
+    ['capitalize', { 'text-transform': 'capitalize' }],
+  ],
+  theme: {
+    colors: {
+      'dark': {
+        'bg': '#100020',
+        'bg-strong': '#6610f2',
+        'text': '#fff8f9',
+        'text-dimm': '#c7bcbd',
+        'border': '',
+        'primary': '#dc3545',
+        'primary-hover': '#d7355b',
+        'secondary': '#dedad7',
+        'secondary-hover': '#c4c0bd',
+
+      },
+
+      'blue': ' #0d6efd',
+      'indigo': ' #6610f2',
+      'purple': ' #6f42c1',
+      'pink': ' #d63384',
+      'red': ' #dc3545',
+      'orange': ' #fd7e14',
+      'yellow': ' #ffc107',
+      'green': ' #198754',
+      'teal': ' #20c997',
+      'cyan': ' #0dcaf0',
+      'black': ' #000',
+      'white': ' #fff',
+      'gray': ' #776e6e',
+      'gray-dark': ' #2d2526',
+      'gray-100': ' #fff8f9',
+      'gray-200': ' #f0e7e8',
+      'gray-300': ' #e2d7d8',
+      'gray-400': ' #c7bcbd',
+      'gray-500': ' #a19798',
+      'gray-600': ' #776e6e',
+      'gray-700': ' #3d3435',
+      'gray-800': ' #2d2526',
+      'gray-900': ' #1a1110',
+      'primary': ' #0d6efd',
+      'secondary': ' #776e6e',
+      'success': ' #198754',
+      'info': '#0dcaf0',
+      'warning': ' #ffc107',
+      'danger': ' #dc3545',
+      'light': ' #fff8f9',
+      /*'dark': ' #1a1110',*/
+    },
+  },
 })

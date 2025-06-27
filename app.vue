@@ -1,10 +1,8 @@
 <template>
-  <div>
+  <div class="bg-white text-black dark:bg-dark-bg dark:text-white">
     <NuxtRouteAnnouncer />
 
-    <div class="p-8">
-      <!-- Feel free to completely remove this boilerplate! -->
-
+    <!-- <div class="p-8">
       <img
         src="/public/logo.png"
         alt="PokéNuxt's logo, showing a Pokéball"
@@ -29,6 +27,10 @@
         height="96"
         class="pos-absolute bottom-0 right-0"
       >
+    </div> -->
+
+    <div class="">
+      <NuxtPage />
     </div>
   </div>
 </template>
