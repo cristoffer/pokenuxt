@@ -134,7 +134,7 @@ onMounted(() => fetchProducts())
               </option>
               <option
                 v-for="type in types.results"
-                v-bind:key="type.name"
+                :key="type.name"
                 :value="type.name"
               >
                 {{ type.name }}
