@@ -1,13 +1,22 @@
 <script setup lang="ts">
 import { searchFilterStore } from '~/store/searchFilterStore'
 import { searchResultsStore } from '~/store/searchResultsStore'
-import { getPokemonType } from '~/services/api'
+import { API_BASE_URL } from '~/services/api'
+import type { TypesResponse } from '~/types/response'
 
 const orderBy = ref<string>('asc')
 const searchTerm = ref<string>('')
 const typeFilter = ref<string>('')
+const types = ref<TypesResponse | null>(null)
 
-const { data: types } = await getPokemonType()
+const fetchTypes = async () => {
+  try {
+    types.value = await $fetch<TypesResponse>(`${API_BASE_URL}/type/`)
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
 
 watch(orderBy, () => {
   searchFilterStore.orderBy = orderBy.value
@@ -24,6 +33,8 @@ watch(searchFilterStore, () => {
 const onSearch = () => {
   searchFilterStore.search = searchTerm.value
 }
+
+onMounted(() => fetchTypes())
 </script>
 
 <template>

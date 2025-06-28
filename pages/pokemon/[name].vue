@@ -32,10 +32,16 @@ onMounted(() => fetchPokemon())
     <div v-if="loading">
       Loading...
     </div>
-    <div v-else-if="error" class="center text-light-alert dark:text-dark-alert">
+    <div
+      v-else-if="error"
+      class="center text-light-alert dark:text-dark-alert"
+    >
       {{ error }}
     </div>
-    <div v-else class="flex justify-center">
+    <div
+      v-else
+      class="flex justify-center"
+    >
       <div class="w-full max-w-200">
         <div v-if="!pokemon">
           No data
