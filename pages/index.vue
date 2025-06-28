@@ -70,11 +70,8 @@ watch(searchFilterStore, () => {
   fetchPokemon()
 })
 
-onMounted(() => fetchPokemon())
-
-// onMounted(() => pageMetaStore.pageTitle = 'Search')
-
 onMounted(() => setPageTitle('Search'))
+onMounted(() => fetchPokemon())
 </script>
 
 <template>

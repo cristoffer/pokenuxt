@@ -23,8 +23,8 @@ const fetchPokemon = async () => {
   }
 }
 
+onMounted(() => setPageTitle(route.params!.name as string))
 onMounted(() => fetchPokemon())
-onMounted(() => setPageTitle(route.params!.name))
 </script>
 
 <template>
