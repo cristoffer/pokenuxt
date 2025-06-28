@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { searchFilterStore } from '~/store/searchFilterStore'
+import { searchResultsStore } from '~/store/searchResultsStore'
 import { getPokemonType } from '~/services/api'
 
 const orderBy = ref<string>('asc')
@@ -83,7 +84,7 @@ const onSearch = () => {
       </div>
       <div class="w-full">
         <div class="text-xs pt-4 dark:text-dark-text-dimm">
-          Showing: {{ searchFilterStore.results }} / {{ searchFilterStore.total }}
+          Showing: {{ searchResultsStore.results }} / {{ searchResultsStore.total }}
         </div>
       </div>
     </div>

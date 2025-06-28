@@ -22,19 +22,19 @@ export default defineConfig({
         'primary-hover': ' #d7355b',
         'secondary': ' #gb(222, 218, 215)',
         'secondary-hover': ' #c4c0bd',
-        'accent': '#fecd40',
+        'accent': ' #fecd40',
       },
       light: {
-        'bg': ' #100020',
+        'bg': ' #fff8f9',
         'bg-strong': ' #0dcaf0',
         'text': ' #1a1110',
         'text-dimm': ' #776e6e',
-        'border': '',
+        'border': '#1a1110',
         'primary': ' #dc3545',
         'primary-hover': ' #d7355b',
         'secondary': ' #dedad7',
         'secondary-hover': ' #c4c0bd',
-        'accent': '#fecd40',
+        'accent': ' #fd7e14',
       },
     },
   },
@@ -42,36 +42,6 @@ export default defineConfig({
     ['capitalize', { 'text-transform': 'capitalize' }],
   ],
 })
-/*
-theme: {
-  colors: {
-    dark: {
-      'bg': ' #100020',
-      'bg-strong': ' rgb(66, 24, 98)',
-      'text': ' #fff8f9',
-      'text-dimm': ' rgb(196, 192, 189)',
-      'border': '',
-      'primary': ' rgb(252, 89, 120)',
-      'primary-hover': ' #d7355b',
-      'secondary': ' #gb(222, 218, 215)',
-      'secondary-hover': ' #c4c0bd',
-      'accent': '#fecd40',
-    },
-    light: {
-      'bg': ' #100020',
-      'bg-strong': ' #0dcaf0',
-      'text': ' #1a1110',
-      'text-dimm': ' #c7bcbd',
-      'border': '',
-      'primary': ' #dc3545',
-      'primary-hover': ' #d7355b',
-      'secondary': ' #dedad7',
-      'secondary-hover': ' #c4c0bd',
-      'accent':' #fecd40',
-    },
-  },
-},
-*/
 
 /*
 'blue': ' #0d6efd',

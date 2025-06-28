@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { Pokemon } from '~/types/pokemon'
+
 const { loadMore } = defineProps({
-  pokemons: { type: Array, required: true },
+  pokemons: { type: Array<Pokemon>, required: true },
   loadMore: { type: Function, required: true },
 })
 

@@ -1,3 +1,5 @@
+import type { Pokemon } from "~/types/pokemon"
+
 const API_BASE_URL = 'https://pokeapi.co/api/v2'
 
 type GetPokemonType = {
@@ -47,7 +49,7 @@ export async function decoratedPokemon() {
   const req = await fetch(`${API_BASE_URL}/pokemon/?offset=${0}&limit=${2000}`)
   const data = await req.json()
 
-  const responses = await Promise.all(data.results.map(async (pokemon) => {
+  const responses = await Promise.all(data.results.map(async (pokemon: Pokemon) => {
     const response = await fetch(`${API_BASE_URL}/pokemon/${pokemon.name}`)
     const data = await response.json()
     return {

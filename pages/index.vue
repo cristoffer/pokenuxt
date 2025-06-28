@@ -3,6 +3,7 @@ import { pageMetaStore } from '~/store/pageMetaStore'
 import { searchFilterStore } from '~/store/searchFilterStore'
 import { TypePill } from '#components'
 import { getPokemonType } from '~/services/api'
+import { searchResultsStore } from '~/store/searchResultsStore'
 
 const loading = ref<boolean>(false)
 const error = ref<string | null>(null)
@@ -21,8 +22,8 @@ const fetchProducts = async () => {
       results: data.value.results.concat(response.results)
     }
 
-    searchFilterStore.total = data.value.total
-    searchFilterStore.results = data.value.results.length
+    searchResultsStore.total = data.value.total
+    searchResultsStore.results = data.value.results.length
   }
   catch (err) {
     error.value = err instanceof Error ? err.message : 'Unknown error occurred'
@@ -83,7 +84,7 @@ onMounted(() => pageMetaStore.pageTitle = 'Search')
             v-for="type in types.results"
             :key="type.name"
             :label="type.name"
-            :active="searchFilterStore.type"
+            :active="searchFilterStore.type === type.name"
             :on-click="onClickPill"
           />
         </div>
