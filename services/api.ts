@@ -1,7 +1,7 @@
 import type { Pokemon, PokemonFull, PokemonMove, PokemonType } from '~/types/pokemon'
 import type { TypesResponse } from '~/types/response'
 
-const API_BASE_URL = 'https://pokeapi.co/api/v2'
+export const API_BASE_URL = 'https://pokeapi.co/api/v2'
 
 type GetPokemonType = {
   name: string

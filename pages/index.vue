@@ -14,7 +14,7 @@ const data = ref<PokemonResponse>({ results: [] })
 
 const { data: types } = await getPokemonType()
 
-const fetchProducts = async () => {
+const fetchPokemon = async () => {
   loading.value = true
   try {
     const response = await $fetch<PokemonResponse>('/api/pokemon', { method: 'POST', body: { skip: page.value * pageSize.value, take: pageSize.value, type: searchFilterStore.type, search: searchFilterStore.search, orderBy: searchFilterStore.orderBy } })
@@ -50,7 +50,7 @@ const clearResults = () => {
 
 watch(page, () => {
   if (!loading.value) {
-    fetchProducts()
+    fetchPokemon()
   }
 })
 
@@ -67,10 +67,10 @@ const onIntersection = () => {
 watch(searchFilterStore, () => {
   clearResults()
   page.value = 0
-  fetchProducts()
+  fetchPokemon()
 })
 
-onMounted(() => fetchProducts())
+onMounted(() => fetchPokemon())
 
 onMounted(() => pageMetaStore.pageTitle = 'Search')
 </script>
@@ -94,6 +94,9 @@ onMounted(() => pageMetaStore.pageTitle = 'Search')
         </div>
         <div v-if="error" class="center text-light-alert dark:text-dark-alert">
           {{ error }}
+        </div>
+        <div v-else-if="loading">
+          Loading...
         </div>
         <div v-else-if="!pokemons.length">
           No data
