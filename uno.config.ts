@@ -1,12 +1,11 @@
-import { defineConfig, presetUno, presetAttributify, presetWind4, presetTypography } from 'unocss'
+import { defineConfig, presetAttributify, presetWind4, presetTypography } from 'unocss'
 
 export default defineConfig({
   presets: [
-    presetUno({
+    presetAttributify(),
+    presetWind4({
       dark: 'media',
     }),
-    presetAttributify(),
-    presetWind4(),
     presetTypography(),
   ],
   theme: {

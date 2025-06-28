@@ -92,7 +92,10 @@ onMounted(() => pageMetaStore.pageTitle = 'Search')
             :on-click="onClickPill"
           />
         </div>
-        <div v-if="error" class="center text-light-alert dark:text-dark-alert">
+        <div
+          v-if="error"
+          class="center text-light-alert dark:text-dark-alert"
+        >
           {{ error }}
         </div>
         <div v-else-if="loading">
