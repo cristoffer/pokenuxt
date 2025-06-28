@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { getPokemon } from '~/services/api'
+import { pageMetaStore } from '~/store/pageMetaStore'
 
 const route = useRoute()
 
 const { data } = await getPokemon({ name: route.params!.name })
+pageMetaStore.pageTitle = data.value?.name || ''
 </script>
 
 <template>
