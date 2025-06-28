@@ -5,7 +5,10 @@ const { pageTitle } = usePageTitle()
 <template>
   <div class="dark:bg-dark-bg-strong bg-light-bg-strong pt-2 pb-2 flex justify-center">
     <h1 class="text-light-primary dark:text-dark-primary text-4xl font-bold w-full max-w-200">
-      <RouterLink to="/">
+      <RouterLink
+        to="/"
+        tabindex="0"
+      >
         PokeNuxt
       </RouterLink>
       <span
