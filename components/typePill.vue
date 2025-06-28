@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 defineProps({
   label: { type: String, required: true },
   active: { type: Boolean, required: false },

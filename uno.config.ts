@@ -23,6 +23,8 @@ export default defineConfig({
         'secondary': ' #gb(222, 218, 215)',
         'secondary-hover': ' #c4c0bd',
         'accent': ' #fecd40',
+        'alert': ' #dc3545',
+        'warning': ' #ffc107',
       },
       light: {
         'bg': ' #fff8f9',
@@ -35,6 +37,8 @@ export default defineConfig({
         'secondary': ' #dedad7',
         'secondary-hover': ' #c4c0bd',
         'accent': ' #fd7e14',
+        'alert': ' #dc3545',
+        'warning': ' #ffc107',
       },
     },
   },
