@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { pageMetaStore } from '~/store/pageMetaStore'
-
-const pageTitle = ref<string | null>('')
-
-watch(pageMetaStore, () => {
-  pageTitle.value = pageMetaStore.pageTitle
-})
+const { pageTitle } = usePageTitle()
 </script>
 
 <template>

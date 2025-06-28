@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { pageMetaStore } from '~/store/pageMetaStore'
 import { searchFilterStore } from '~/store/searchFilterStore'
 import { TypePill } from '#components'
 import { getPokemonType } from '~/services/api'
@@ -11,6 +10,7 @@ const error = ref<string | null>(null)
 const page = ref<number>(0)
 const pageSize = ref<number>(20)
 const data = ref<PokemonResponse>({ results: [] })
+const { setPageTitle } = usePageTitle()
 
 const { data: types } = await getPokemonType()
 
@@ -72,7 +72,9 @@ watch(searchFilterStore, () => {
 
 onMounted(() => fetchPokemon())
 
-onMounted(() => pageMetaStore.pageTitle = 'Search')
+// onMounted(() => pageMetaStore.pageTitle = 'Search')
+
+onMounted(() => setPageTitle('Search'))
 </script>
 
 <template>

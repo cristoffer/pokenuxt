@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { API_BASE_URL } from '~/services/api'
-import { pageMetaStore } from '~/store/pageMetaStore'
 import type { PokemonFull } from '~/types/pokemon'
 
+const { setPageTitle } = usePageTitle()
 const loading = ref<boolean>(true)
 const error = ref<string | null>(null)
 const pokemon = ref<PokemonFull | null>(null)
@@ -14,7 +14,6 @@ const fetchPokemon = async () => {
 
   try {
     pokemon.value = await $fetch(`${API_BASE_URL}/pokemon/${route.params!.name}`)
-    pageMetaStore.pageTitle = pokemon.value?.name || ''
   }
   catch (err) {
     error.value = err instanceof Error ? err.message : 'Unknown error occurred'
@@ -25,6 +24,7 @@ const fetchPokemon = async () => {
 }
 
 onMounted(() => fetchPokemon())
+onMounted(() => setPageTitle(route.params!.name))
 </script>
 
 <template>
