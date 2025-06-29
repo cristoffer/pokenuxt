@@ -1,47 +1,19 @@
 <template>
-  <div class="bg-white text-black dark:bg-dark-bg dark:text-white">
+  <div class=" pb-60">
+    <AppHeader />
     <NuxtRouteAnnouncer />
-
-    <!-- <div class="p-8">
-      <img
-        src="/public/logo.png"
-        alt="PokéNuxt's logo, showing a Pokéball"
-        height="100"
-        class="h-10 mb-4"
-      >
-
-      <h1 class="text-lg font-bold mb-4">
-        Hello, candidate!
-      </h1>
-      <p>
-        Please check the README file for the instructions.
-      </p>
-      <p class="text-sm text-gray-500">
-        Good luck, and most importantly, have fun doing this test!
-      </p>
-
-      <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-        alt="A Pikachu"
-        width="96"
-        height="96"
-        class="pos-absolute bottom-0 right-0"
-      >
-    </div> -->
-
-    <div class="">
-      <NuxtPage />
-    </div>
+    <NuxtPage />
   </div>
 </template>
 
 <script setup>
 import '@unocss/reset/tailwind.css' // Importing Tailwind CSS reset styles
+// import { pageMetaStore } from './store/pageMetaStore'
 
 useHead({
   title: 'PokéNuxt',
   bodyAttrs: {
-    class: 'bg-stone-100', // Setting the background color and margin for the body
+    class: 'bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text',
   },
   link: [
     {

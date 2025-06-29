@@ -1,17 +1,45 @@
 <script setup lang="ts">
-import { getPokemon } from '~/services/api'
+import type { Pokemon } from '~/types/pokemon'
 
-const { data } = await getPokemon({ skip: 20, take: 20 })
+const { loadMore } = defineProps({
+  pokemons: { type: Array<Pokemon>, required: true },
+  loadMore: { type: Function, required: true },
+})
+
+const readMarker = ref<HTMLSpanElement>()
+let observer: IntersectionObserver
+
+const onIntersect = () => {
+  loadMore()
+}
+
+onMounted(() => {
+  if (!readMarker.value)
+    return
+  observer = new IntersectionObserver(
+    (e) => {
+      if (e[0].isIntersecting) {
+        onIntersect()
+      }
+    },
+    {
+      root: document,
+    },
+  )
+  observer.observe(readMarker.value)
+})
+
+onDeactivated(() => observer.disconnect())
 </script>
 
 <template>
-  paginated list
-  <div v-if="data == null">
-    No data
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pt-4">
+    <PokemonItem
+      v-for="pokemon in pokemons"
+      :key="pokemon.name"
+      :pokemon="pokemon"
+    />
   </div>
-  <div v-else>
-    <ul>
-      <PokemonItem />
-    </ul>
-  </div>
+
+  <span ref="readMarker" />
 </template>

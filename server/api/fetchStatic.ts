@@ -1,10 +1,11 @@
 import fs from 'fs'
+import type { PokemonFull } from '~/types/pokemon'
 
 export default defineEventHandler(async () => {
   const data = fs.readFileSync('./jsonData/pokemon.json')
-  const parsedData = JSON.parse(data);
+  const parsedData = JSON.parse(data)
 
-  const lite = parsedData.map(pokemon => {
+  const lite = parsedData.map((pokemon: PokemonFull) => {
     return {
       abilities: pokemon.abilities,
       base_experience: pokemon.base_experience,
@@ -25,7 +26,6 @@ export default defineEventHandler(async () => {
     fs.writeFileSync('./jsonData/pokemonStripped.json', JSON.stringify(lite, null, 2), 'utf8')
   }
   catch (e) {
-    console.log('###############')
     console.error(e)
   }
 
