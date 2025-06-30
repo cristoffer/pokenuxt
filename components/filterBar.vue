@@ -40,39 +40,37 @@ onMounted(() => fetchTypes())
 <template>
   <div class="pos-sticky top-0 flex pt-4 pb-4 pl-4 pr-4 dark:bg-dark-bg-strong bg-light-bg-strong flex-wrap justify-center">
     <div class="w-full max-w-200">
-      <div class="flex justify-between">
-        <div class="flex gap-16">
-          <div>
-            <input
-              v-model="searchTerm"
-              class="dark:text-dark-text text-light-text pl-2 border dark:border-dark-text border-light-text rounded-l-md border-r-0 box-content pt-0 pb-0"
-              type="search"
-              placeholder="search..."
-              @keyup.enter="onSearch"
+      <div class="flex justify-between flex-wrap">
+        <div class="flex flex-wrap ">
+          <input
+            v-model="searchTerm"
+            class="dark:text-dark-text text-light-text pl-2 border dark:border-dark-text border-light-text rounded-l-md border-r-0 box-content pt-0 pb-0"
+            type="search"
+            placeholder="search..."
+            @keyup.enter="onSearch"
+          >
+          <button
+            class="border dark:border-dark-text border-light-text sm:border-r-0 pl-6 pr-6 hover:bg-white hover:text-black box-content pt-0 pb-0"
+            @click="onSearch"
+          >
+            Search
+          </button>
+          <select
+            v-if="types"
+            v-model="typeFilter"
+            class="hidden sm:inline-block dark:text-dark-text text-light-text pl-2 pr-2 border dark:border-dark-text border-light-text pt-0 pb-0 capitalize cursor-pointer pt-0 pb-0 rounded-r-md box-content h-[24px]"
+          >
+            <option value="">
+              Type
+            </option>
+            <option
+              v-for="type in types.results"
+              :key="type.name"
+              :value="type.name"
             >
-            <button
-              class="border dark:border-dark-text border-light-text border-r-0 pl-6 pr-6 hover:bg-white hover:text-black box-content pt-0 pb-0"
-              @click="onSearch"
-            >
-              Search
-            </button>
-            <select
-              v-if="types"
-              v-model="typeFilter"
-              class="dark:text-dark-text text-light-text pl-2 pr-2 border dark:border-dark-text border-light-text pt-0 pb-0 capitalize cursor-pointer pt-0 pb-0 rounded-r-md box-content h-[24px]"
-            >
-              <option value="">
-                Type
-              </option>
-              <option
-                v-for="type in types.results"
-                :key="type.name"
-                :value="type.name"
-              >
-                {{ type.name }}
-              </option>
-            </select>
-          </div>
+              {{ type.name }}
+            </option>
+          </select>
         </div>
         <div>
           <select

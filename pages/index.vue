@@ -78,10 +78,10 @@ onMounted(() => fetchPokemon())
   <div class="relative">
     <FilterBar />
     <div class="flex justify-center">
-      <div class="w-full max-w-200">
+      <div class="w-full max-w-200 pl-2 pr-2">
         <div
           v-if="types"
-          class="flex w-full scroll gap-4 overflow-auto mt-8 pb-8"
+          class="flex w-full scroll gap-4 overflow-auto mt-8 pb-8 "
         >
           <TypePill
             v-for="type in types.results"
